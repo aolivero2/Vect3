@@ -5,6 +5,8 @@
  */
 package ejercicio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aolivero11
@@ -14,6 +16,7 @@ public class VectorDos extends javax.swing.JFrame {
     /**
      * Creates new form VectorDos
      */
+    double v[];
     public VectorDos() {
         initComponents();
     }
@@ -74,14 +77,15 @@ public class VectorDos extends javax.swing.JFrame {
         txtResl.setRows(5);
         jScrollPane1.setViewportView(txtResl);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 130));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 180, 130));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 190, 160));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 210, 180));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 102, 102))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cmdCrear.setBackground(new java.awt.Color(255, 204, 204));
         cmdCrear.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         cmdCrear.setText("Crear");
         cmdCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +95,7 @@ public class VectorDos extends javax.swing.JFrame {
         });
         jPanel4.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
+        cmdLlenadoManual.setBackground(new java.awt.Color(255, 204, 204));
         cmdLlenadoManual.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         cmdLlenadoManual.setText("Llenado Manual");
         cmdLlenadoManual.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +105,7 @@ public class VectorDos extends javax.swing.JFrame {
         });
         jPanel4.add(cmdLlenadoManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
+        cmdLlenadoAutomatico.setBackground(new java.awt.Color(255, 204, 204));
         cmdLlenadoAutomatico.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         cmdLlenadoAutomatico.setText("Llenado Automatico");
         cmdLlenadoAutomatico.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +115,7 @@ public class VectorDos extends javax.swing.JFrame {
         });
         jPanel4.add(cmdLlenadoAutomatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
+        cmdMostrar.setBackground(new java.awt.Color(255, 204, 204));
         cmdMostrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdMostrar.setText("Mostrar");
         cmdMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +125,7 @@ public class VectorDos extends javax.swing.JFrame {
         });
         jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
+        cmdBorrar.setBackground(new java.awt.Color(255, 204, 204));
         cmdBorrar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         cmdBorrar.setText("Borrar");
         cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,27 +157,82 @@ public class VectorDos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
-        // TODO add your handling code here:
+        int Lg;
+       if (txtLongt.getText().trim().isEmpty()){
+         JOptionPane.showMessageDialog(this, "Digite por favor la longitud","Error",JOptionPane.ERROR_MESSAGE);
+         txtLongt.requestFocusInWindow();            
+       }
+       else if (Integer.parseInt(txtLongt.getText().trim())==0){
+         JOptionPane.showMessageDialog(this, "No digite cero en la longitud","Error",JOptionPane.ERROR_MESSAGE);
+         txtLongt.requestFocusInWindow();
+            txtLongt.selectAll();
+       }
+       else{
+        Lg=Integer.parseInt(txtLongt.getText().trim());
+        v = new double [Lg];
+        JOptionPane.showMessageDialog(this, "Vector creado exitosamente!");
+       }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
     private void cmdLlenadoManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoManualActionPerformed
-        // TODO add your handling code here:
+        double n;
+        for (int i = 0; i < v.length; i++) {
+            n=Double.parseDouble(JOptionPane.showInputDialog("Digite el elemento en la posicion"+i));
+            v[i]=n;
+        }
     }//GEN-LAST:event_cmdLlenadoManualActionPerformed
 
     private void cmdLlenadoAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoAutomaticoActionPerformed
-        // TODO add your handling code here:
+        double n;
+        for (int i = 0; i < v.length; i++) {
+            //n=(int)(Math.random()* + 1);
+            n=i+1;
+            v[i]=1;
+        }
     }//GEN-LAST:event_cmdLlenadoAutomaticoActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
-        // TODO add your handling code here:
+       double par=0,imp=0,prim=0;
+        for (int i = 0; i < v.length; i++) {
+          txtResl.append(v[i]+ "\n"); 
+        }
+        for (int i = 0; i < v.length; i++) {
+             if(v[i]%2==0){
+             par++;
+          }
+          else{
+          imp++;
+         }
+      int c=0;
+      for(int j=1; j<= v[i]; j++){
+      if(v[i]%j==0){
+       c++;
+         }
+     }
+    if(c==2){
+     prim++;
+       }
+        }
+    JOptionPane.showMessageDialog(this,"La cantidad de numeros pares son:"  +par);
+    JOptionPane.showMessageDialog(this,"La cantidad de numeros impares son:"  +imp);
+    JOptionPane.showMessageDialog(this,"La cantidad de numeros primos son:"  +prim);
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
-        // TODO add your handling code here:
+       txtLongt.setText("");
+        txtResl.setText("");
+        v=null;
+        txtLongt.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtLongtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongtKeyTyped
-        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();  
+          }
     }//GEN-LAST:event_txtLongtKeyTyped
 
     /**
