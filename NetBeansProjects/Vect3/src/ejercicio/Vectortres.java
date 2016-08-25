@@ -5,6 +5,8 @@
  */
 package ejercicio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aolivero11
@@ -14,6 +16,7 @@ public class Vectortres extends javax.swing.JFrame {
     /**
      * Creates new form Vectortres
      */
+    double v[], v1[];
     public Vectortres() {
         initComponents();
     }
@@ -56,11 +59,23 @@ public class Vectortres extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Longitud 1:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        txtL1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtL1KeyTyped(evt);
+            }
+        });
         jPanel2.add(txtL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 100, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Longitud 2:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        txtL2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtL2KeyTyped(evt);
+            }
+        });
         jPanel2.add(txtL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 260, 120));
@@ -84,26 +99,51 @@ public class Vectortres extends javax.swing.JFrame {
         cmdCrear.setBackground(new java.awt.Color(255, 255, 204));
         cmdCrear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdCrear.setText("Crear");
+        cmdCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCrearActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 80, 30));
 
         cmdLlenadoM.setBackground(new java.awt.Color(255, 255, 204));
         cmdLlenadoM.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdLlenadoM.setText("Llenado Manual");
+        cmdLlenadoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenadoMActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdLlenadoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 140, 30));
 
         cmdLlenadoAu.setBackground(new java.awt.Color(255, 255, 204));
         cmdLlenadoAu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdLlenadoAu.setText("Llenado Automatico");
+        cmdLlenadoAu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenadoAuActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdLlenadoAu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, 30));
 
         cmdMostrar.setBackground(new java.awt.Color(255, 255, 204));
         cmdMostrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdMostrar.setText("Mostrar");
+        cmdMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdMostrarActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 80, 30));
 
         cmdBorrar.setBackground(new java.awt.Color(255, 255, 204));
         cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 80, 30));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 220, 250));
@@ -126,6 +166,109 @@ public class Vectortres extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int l, l2;
+       if (txtL1.getText().trim().isEmpty()){
+           JOptionPane.showMessageDialog(this, "Digite la longitud","Error",JOptionPane.ERROR_MESSAGE);
+           txtL1.requestFocusInWindow();
+       }
+       else if(txtL2.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Digite la longitud", "Error",JOptionPane.ERROR_MESSAGE);
+        txtL2.requestFocusInWindow();
+       }
+       else if (Integer.parseInt(txtL1.getText().trim())==0){
+         JOptionPane.showMessageDialog(this, "No digite cero en la longitud","Error",JOptionPane.ERROR_MESSAGE);
+         txtL1.requestFocusInWindow();
+         txtL1.selectAll();
+       }
+       else if (Integer.parseInt(txtL2.getText().trim())==0){
+         JOptionPane.showMessageDialog(this, "No digite cero en la longitud","Error",JOptionPane.ERROR_MESSAGE);
+         txtL2.requestFocusInWindow();
+         txtL2.selectAll(); 
+       }
+       else{
+           l=Integer.parseInt(txtL1.getText().trim());
+           v = new double [l];
+           JOptionPane.showMessageDialog(this, "Vector creado exitosamente!");
+           
+           l2=Integer.parseInt(txtL2.getText().trim());
+           v1 = new double [l2];
+           JOptionPane.showMessageDialog(this, "Vector dos creado exitosamente!");
+       }
+    }//GEN-LAST:event_cmdCrearActionPerformed
+
+    private void cmdLlenadoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoMActionPerformed
+       double n;
+        for (int i = 0; i < v.length; i++) {
+            n=Double.parseDouble(JOptionPane.showInputDialog("Digite el elemento en la posicion" +i));
+            v[i]=n;
+        }
+        for (int i = 0; i < v.length; i++) {
+          n=Double.parseDouble(JOptionPane.showInputDialog("Digite el elemento en la posicion" +i));
+            v1[i]=n;  
+            
+        }
+    }//GEN-LAST:event_cmdLlenadoMActionPerformed
+
+    private void cmdLlenadoAuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoAuActionPerformed
+       double n;
+        for (int i = 0; i < v.length; i++) {
+            n=(int)(Math.random()* + 1);
+            n=i+1;
+            v[i]=1;
+        }
+    }//GEN-LAST:event_cmdLlenadoAuActionPerformed
+
+    private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
+        double suma,resta;
+        for (int i = 0; i < v.length; i++) {
+          txtRes.append(v[i]+ "\n");
+        }
+        for (int i = 0; i < v.length; i++) {
+          txtRes.append(v1[i]+"\n");
+        }
+        for (int i = 0; i < v.length; i++) {
+            suma=v[i]+v1[i];
+        JOptionPane.showMessageDialog(this,"La suma del vector 1 y vector 2 es:" +suma); 
+            
+        }
+        for (int i = 0; i <v.length; i++) {
+            resta=v[i]-v1[i];
+           JOptionPane.showMessageDialog(this,"La resta del vector 1 y vector 2 es:" +resta); 
+        }
+       
+    }//GEN-LAST:event_cmdMostrarActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+       txtL1.setText("");
+        txtL2.setText("");
+        txtRes.setText("");
+        v = null;
+        v1 = null;
+        txtL1.requestFocusInWindow();
+        txtL2.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtL1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtL1KeyTyped
+        char c=evt.getKeyChar(); 
+
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();  
+          }
+    }//GEN-LAST:event_txtL1KeyTyped
+
+    private void txtL2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtL2KeyTyped
+        char c=evt.getKeyChar(); 
+
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();  
+          }
+    }//GEN-LAST:event_txtL2KeyTyped
 
     /**
      * @param args the command line arguments
