@@ -28,20 +28,100 @@ public class Vectortres extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtL1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtL2 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtRes = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        cmdCrear = new javax.swing.JButton();
+        cmdLlenadoM = new javax.swing.JButton();
+        cmdLlenadoAu = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos iniciales:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Longitud 1:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel2.add(txtL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 100, 30));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Longitud 2:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jPanel2.add(txtL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 260, 120));
+
+        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtRes.setColumns(20);
+        txtRes.setRows(5);
+        jScrollPane1.setViewportView(txtRes);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 150));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 250, 200));
+
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdCrear.setBackground(new java.awt.Color(255, 255, 204));
+        cmdCrear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdCrear.setText("Crear");
+        jPanel4.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 80, 30));
+
+        cmdLlenadoM.setBackground(new java.awt.Color(255, 255, 204));
+        cmdLlenadoM.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdLlenadoM.setText("Llenado Manual");
+        jPanel4.add(cmdLlenadoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 140, 30));
+
+        cmdLlenadoAu.setBackground(new java.awt.Color(255, 255, 204));
+        cmdLlenadoAu.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdLlenadoAu.setText("Llenado Automatico");
+        jPanel4.add(cmdLlenadoAu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 170, 30));
+
+        cmdMostrar.setBackground(new java.awt.Color(255, 255, 204));
+        cmdMostrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdMostrar.setText("Mostrar");
+        jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 80, 30));
+
+        cmdBorrar.setBackground(new java.awt.Color(255, 255, 204));
+        cmdBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmdBorrar.setText("Borrar");
+        jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 80, 30));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 220, 250));
+
+        jLabel3.setFont(new java.awt.Font("Century Schoolbook", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel3.setText("    OPERACIONES");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,6 +163,21 @@ public class Vectortres extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCrear;
+    private javax.swing.JButton cmdLlenadoAu;
+    private javax.swing.JButton cmdLlenadoM;
+    private javax.swing.JButton cmdMostrar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtL1;
+    private javax.swing.JTextField txtL2;
+    private javax.swing.JTextArea txtRes;
     // End of variables declaration//GEN-END:variables
 }
